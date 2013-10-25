@@ -5,32 +5,47 @@ var AVL = require("./avl.js"),          // the module we are testng
 
 var avl = new AVL();
 
-var testf = function test1() {
+(function emptyHeightTest() {
+    cj.test(avl.height(), -1);
+}());
+
+(function emptyHeightTest() {
+    avl.add(3)
+    cj.test(avl.height(), 1);
+}());
+
+(function duplicateTest() {
     avl.add(3);
+    cj.test(avl.height(), 1);
+}());
+
+(function addTest() {
     avl.add(-7);
     avl.add(20);
     avl.add(25);
     avl.add(1);
     avl.add(0);
     cj.test(avl.height(), 3);
-}();
+})();
 
-var t1 = function() {
-    avl.add(4);
-    cj.test(avl.height, 3);
-}
+(function addTest2() {
+})();
 
-var t2 = function() {
+(function addTest3() {
+    
+}());
+
+(function removeTest() {
     avl.remove(4);
     cj.test(avl.height, 0);
-}
+})();
 
-var t3 = function() {
+(function containsTest() {
     cj.test(avl.contains(3), true);
-}
+})();
 
-var t4 = function() {
+(function containsTest2() {
     cj.test(avl.contains(22), false);
-}
+})();
 
 cj.run();

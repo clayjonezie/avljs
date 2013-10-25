@@ -49,6 +49,7 @@ var avl = (function () {
     var doubleWithRightChild = function(node){};
 
     var insert = function(node, elem) {
+
         if (node === null) {
             return node = newNode(elem);
         }
@@ -61,7 +62,8 @@ var avl = (function () {
             return insert(node.left, elem);
         }
 
-        else {}
+        else
+            return node;
     };
 
     avl.prototype.add = function(elem) {
