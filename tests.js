@@ -33,16 +33,12 @@ var avl = new AVL();
     cj.test(avl.height(), 3);
 })();
 
-(function addTest2() {
-})();
-
-(function addTest3() {
-    
-})();
 
 (function removeTest() {
-    avl.remove(4);
-    cj.test(avl.height(), 0);
+    avl.remove(0);
+    avl.remove(5);
+    avl.remove(25);
+    cj.test(avl.height(), 2);
 }());
 
 (function containsTest() {
@@ -51,6 +47,13 @@ var avl = new AVL();
 
 (function containsTest2() {
     cj.test(avl.contains(22), false);
+})();
+
+
+(function clearTest() {
+    avl.clear();
+    avl.add(4);
+    cj.test(avl.height(), 0);
 })();
 
 cj.run();
