@@ -8,13 +8,64 @@
 var avl = (function () {
     var root = null;
 
+
     var avl = function() {
         //constructin
 
     };
 
-    avl.prototype.add = function(node) {
+    var newNode = function(elem) {
+        return Object.create({
+            elem: elem,
+            left: null,
+            right: null
+        });
+    };
 
+    var height = function(node) {
+        if (node === null)
+            return -1;
+        else 
+            return Math.max(height(node.left), height(node.right)) + 1;
+    }
+
+    var balance = function(node) {
+        if (height(node.left) - height(node.right) > 1)
+            if (height(node.left.left) - height(node.left.right) > 1)
+                rotateWithLeftChild(node);
+            else
+                doubleWithLeftChild(node);
+        else if (height(node.right) - height(node.left) > 1)
+            if (height(node.right.right) - height(node.right.left) > 1)
+                rotateWithRightChild(node);
+            else
+                doubleWithRightChild(node);
+    };
+
+
+    var rotateWithLeftChild = function(node){};
+    var doubleWithLeftChild = function(node){};
+    var rotateWithRightChild = function(node){};
+    var doubleWithRightChild = function(node){};
+
+    var insert = function(node, elem) {
+        if (node === null) {
+            return node = newNode(elem);
+        }
+
+        if (elem > node.elem) {
+            return insert(node.right, elem);
+        }
+
+        if (elem < node.elem) {
+            return insert(node.left, elem);
+        }
+
+        else {}
+    };
+
+    avl.prototype.add = function(elem) {
+        return root = insert(root, elem);
     };
 
     // adds an array of elements to the tree
@@ -56,6 +107,7 @@ var avl = (function () {
 
     // the maximum hight of the tree
     avl.prototype.height = function() {
+        return height(root);
     };
 
 
