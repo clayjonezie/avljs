@@ -138,12 +138,15 @@ var avl = (function () {
 
     // public methods
     avl.prototype.add = function(elem) {
+        console.log("using external add on " + elem);
         return root = insert(root, elem);
     };
 
     // adds an array of elements to the tree
     avl.prototype.addAll = function(nodes) {
-        
+        nodes.forEach(function(elem) {
+            root = insert(root, elem);
+        });
     };
 
     // clears the tree

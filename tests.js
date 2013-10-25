@@ -56,4 +56,13 @@ var avl = new AVL();
     cj.test(avl.height(), 0);
 })();
 
+(function addAllTest() {
+    avl.clear();
+    avl.addAll([34, 32, 22, 3]);
+    cj.test(avl.contains(34), true);
+    cj.test(avl.contains(32), true);
+    cj.test(avl.contains(3), true);
+    cj.test(avl.contains(99), false);
+})();
+
 cj.run();
