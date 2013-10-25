@@ -1,19 +1,18 @@
-// an avl in javascript, only on ints for now
-// maybe later allow you to pass a function to 
+// an avl in javascript, only on ints for now // maybe later allow you to pass a function to 
 // compare your objects
 //
 // based on Weiss data structures book
 
 
 var avl = (function () {
+
     var root = null;
 
-
     var avl = function() {
-        //constructin
-
+        // constructor of sorts
     };
-
+    
+    // private methods
     var newNode = function(elem) {
         return Object.create({
             elem: elem,
@@ -43,29 +42,31 @@ var avl = (function () {
     };
 
 
-    var rotateWithLeftChild = function(node){};
-    var doubleWithLeftChild = function(node){};
-    var rotateWithRightChild = function(node){};
-    var doubleWithRightChild = function(node){};
+    var rotateWithLeftChild = function(node){
+         console.log("rotating with left child");
+    };
+    var doubleWithLeftChild = function(node){
+        console.log("double with left child");
+    };
+    var rotateWithRightChild = function(node){
+        console.log("rotate with right child");
+    };
+    var doubleWithRightChild = function(node){
+         console.log("double with right child");
+    };
 
     var insert = function(node, elem) {
-
-        if (node === null) {
-            return node = newNode(elem);
-        }
-
-        if (elem > node.elem) {
+        if (node === null)
+            return newNode(elem);
+        if (elem > node.elem)
             return insert(node.right, elem);
-        }
-
-        if (elem < node.elem) {
+        if (elem < node.elem)
             return insert(node.left, elem);
-        }
-
         else
             return node;
     };
 
+    // public methods
     avl.prototype.add = function(elem) {
         return root = insert(root, elem);
     };
